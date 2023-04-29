@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip-game/contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <style>
+            .mainPage{
+            background-color: antiquewhite;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container mainPage">
+              <!-- navbar.............. -->
+         <nav class="navbar navbar-expand-lg myNavbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Flip-game</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar ended.............. -->
+
+        <h5>Drop a message here</h5>
+
+        <div class="container">
+            <form onsubmit="sendEmail(); reset(); return false;">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Your First Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Example-Rahul" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Example-name1@gmail.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="validationTextarea" class="form-label">Textarea</label>
+                    <textarea class="form-control" id="txtArea" placeholder="Wrire your messages" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit" id="triger">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                SecureToken: "dfcc1b3b-eb8b-4505-b4f2-4cd8dca7d682",
+                To: 'balmukundc9@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "Enquiry from Flip_game",
+                Body: "Name:" + document.getElementById("name").value
+                    + "<br>Email: " + document.getElementById("email").value
+                    + "<br>Message:" + document.getElementById("txtArea").value,
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
